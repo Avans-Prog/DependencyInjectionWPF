@@ -1,4 +1,5 @@
 
+using DependencyInjectionWPF.Model;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
 using Microsoft.Practices.ServiceLocation;
@@ -15,6 +16,7 @@ namespace DependencyInjectionWPF.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
+            SimpleIoc.Default.Register<IProductRepository, DummyProductRepository>();
         
             SimpleIoc.Default.Register<MainViewModel>();
         }
