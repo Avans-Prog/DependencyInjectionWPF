@@ -1,3 +1,4 @@
+using DependencyInjectionWPF.Model;
 using GalaSoft.MvvmLight;
 using System.Collections.ObjectModel;
 
@@ -8,8 +9,11 @@ namespace DependencyInjectionWPF.ViewModel
     {
         public ObservableCollection<ProductVM> Products { get; set; }
 
-        public MainViewModel()
+        private IProductRepository _productRepo;
+
+        public MainViewModel(IProductRepository productRepo)
         {
+            this._productRepo = productRepo;
             Products = new ObservableCollection<ProductVM>();
         }
     }
