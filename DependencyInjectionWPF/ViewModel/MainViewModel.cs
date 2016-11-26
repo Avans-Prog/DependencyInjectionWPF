@@ -14,7 +14,7 @@ namespace DependencyInjectionWPF.ViewModel
         public MainViewModel(IProductRepository productRepo)
         {
             this._productRepo = productRepo;
-            Products = new ObservableCollection<ProductVM>();
+            Products = new ObservableCollection<ProductVM>(_productRepo.GetAll());
         }
     }
 }
